@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunday Rota Planner</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Church Rotas</p>
+          <h1>Sunday rota planner</h1>
+          <p class="hero-copy">
+            Manage people, add Sundays, and spot serving clashes before they happen.
+          </p>
+        </div>
+        <div class="hero-card">
+          <p class="hero-stat-label">Roles every Sunday</p>
+          <p class="hero-stat-value">6 teams</p>
+          <p class="hero-stat-footnote">Band, AV, hospitality, youth, children, welcome</p>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Setup</p>
+              <h2>People bank</h2>
+            </div>
+          </div>
+
+          <form id="person-form" class="inline-form">
+            <input
+              id="person-name"
+              name="name"
+              type="text"
+              maxlength="120"
+              placeholder="Add a person's name"
+              autocomplete="off"
+              required
+            />
+            <button type="submit">Add person</button>
+          </form>
+
+          <p id="people-message" class="message" aria-live="polite"></p>
+          <div id="people-list" class="people-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Calendar</p>
+              <h2>Sunday list</h2>
+            </div>
+          </div>
+
+          <form id="sunday-form" class="inline-form">
+            <input id="sunday-date" name="serviceDate" type="date" required />
+            <button type="submit">Add Sunday</button>
+          </form>
+
+          <p id="sunday-message" class="message" aria-live="polite"></p>
+          <div id="sundays-list" class="sunday-list"></div>
+        </section>
+
+        <section class="panel rota-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Assignments</p>
+              <h2 id="rota-title">Select a Sunday</h2>
+            </div>
+            <button id="save-rota" type="button" disabled>Save rota</button>
+          </div>
+
+          <p id="rota-message" class="message" aria-live="polite"></p>
+          <div id="clash-summary"></div>
+          <div id="rota-grid" class="rota-grid empty-state">
+            Choose or add a Sunday to start assigning people.
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
